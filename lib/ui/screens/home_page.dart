@@ -239,8 +239,13 @@ class _HomePageState extends State<HomePage> {
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, PageTransition(child: DetailPage(plantId: plantList[index].plantId), type: PageTransitionType.bottomToTop));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                child: DetailPage(
+                                    plantId: plantList[index].plantId),
+                                type: PageTransitionType.bottomToTop));
                       },
                       child: PlantWidget(index: index, plantList: plantList));
                 }),
@@ -250,4 +255,3 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 }
-

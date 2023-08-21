@@ -68,8 +68,7 @@ class _DetailPageState extends State<DetailPage> {
                           setState(() {
                             bool isFavorited = toggleIsFavorated(
                                 plantList[widget.plantId].isFavorated);
-                            plantList[widget.plantId].isFavorated =
-                                isFavorited;
+                            plantList[widget.plantId].isFavorated = isFavorited;
                           });
                         },
                         icon: Icon(
@@ -121,8 +120,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           PlantFeature(
                             title: 'Temperature',
-                            plantFeature:
-                                plantList[widget.plantId].temperature,
+                            plantFeature: plantList[widget.plantId].temperature,
                           ),
                         ],
                       ),
@@ -225,7 +223,9 @@ class _DetailPageState extends State<DetailPage> {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                  color: plantList[widget.plantId].isSelected == true ? Constants.primaryColor.withOpacity(.5) : Colors.white,
+                  color: plantList[widget.plantId].isSelected == true
+                      ? Constants.primaryColor.withOpacity(.5)
+                      : Colors.white,
                   borderRadius: BorderRadius.circular(50),
                   boxShadow: [
                     BoxShadow(
@@ -234,16 +234,21 @@ class _DetailPageState extends State<DetailPage> {
                       color: Constants.primaryColor.withOpacity(.3),
                     ),
                   ]),
-              child: IconButton(onPressed: (){
-                setState(() {
-                  bool isSelected = toggleIsSelected(plantList[widget.plantId].isSelected);
+              child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      bool isSelected = toggleIsSelected(
+                          plantList[widget.plantId].isSelected);
 
-                  plantList[widget.plantId].isSelected = isSelected;
-                });
-              }, icon: Icon(
-                Icons.shopping_cart,
-                color: plantList[widget.plantId].isSelected == true ? Colors.white : Constants.primaryColor,
-              )),
+                      plantList[widget.plantId].isSelected = isSelected;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.shopping_cart,
+                    color: plantList[widget.plantId].isSelected == true
+                        ? Colors.white
+                        : Constants.primaryColor,
+                  )),
             ),
             const SizedBox(
               width: 20,
