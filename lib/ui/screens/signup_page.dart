@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:florafast/services/firebase_auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:florafast/constants.dart';
 // import 'package:florafast/ui/root_page.dart';
@@ -5,8 +7,26 @@ import 'package:florafast/ui/screens/widgets/custom_textfield.dart';
 import 'package:florafast/ui/screens/signin_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void signUpUser() async {
+    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+      email: emailController.text,
+      password: passwordController.text,
+      userName: nameController.text,
+      context: context,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +51,20 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: emailController,
                 obscureText: false,
                 hintText: 'Enter Email',
                 icon: Icons.alternate_email,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: nameController,
                 obscureText: false,
                 hintText: 'Enter Full name',
                 icon: Icons.person,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: passwordController,
                 obscureText: true,
                 hintText: 'Enter Password',
                 icon: Icons.lock,
@@ -50,7 +73,7 @@ class SignUp extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: signUpUser,
                 child: Container(
                   width: size.width,
                   decoration: BoxDecoration(

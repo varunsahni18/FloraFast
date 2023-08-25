@@ -4,8 +4,15 @@ import 'package:florafast/ui/screens/widgets/custom_textfield.dart';
 import 'package:florafast/ui/screens/signin_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
+
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,8 @@ class ForgotPassword extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: emailController,
                 obscureText: false,
                 hintText: 'Enter Email',
                 icon: Icons.alternate_email,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "954533791414",
+    "project_id": "flora-fast-sop",
+    "storage_bucket": "flora-fast-sop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954533791414:android:22e27d6d22815d20a80817",
+        "android_client_info": {
+          "package_name": "com.example.florafast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954533791414-i69nujc92581h2pm4dcejlvc6fsjr28s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2Meumuup34T2umHmQibDedQ8tkPzKkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954533791414-i69nujc92581h2pm4dcejlvc6fsjr28s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

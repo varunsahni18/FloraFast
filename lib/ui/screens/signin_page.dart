@@ -6,8 +6,16 @@ import 'package:florafast/ui/screens/signup_page.dart';
 import 'package:florafast/ui/screens/widgets/custom_textfield.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +40,14 @@ class SignIn extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: emailController,
                 obscureText: false,
                 hintText: 'Enter Email',
                 icon: Icons.alternate_email,
               ),
-              const CustomTextfield(
+              CustomTextfield(
+                controller: passwordController,
                 obscureText: true,
                 hintText: 'Enter Password',
                 icon: Icons.lock,
@@ -157,7 +167,7 @@ class SignIn extends StatelessWidget {
                   child: Text.rich(
                     TextSpan(children: [
                       TextSpan(
-                        text: 'New to Planty? ',
+                        text: 'New to FloraFast? ',
                         style: TextStyle(
                           color: Constants.blackColor,
                         ),
